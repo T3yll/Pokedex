@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.tsx
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import TrainerForm from './components/TrainerForm';
+import TrainerList from './components/TrainerList';
+import PokedexPage from './containers/PokedexPage';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        {/* Route par défaut qui montre la sélection de dresseurs */}
+        <Route path="/" element={
+          <div className="min-h-screen bg-red-500 flex flex-col items-center justify-center p-8 font-pokemon">
+            <h1 className="text-4xl text-white font-bold mb-8 font-pokemon drop-shadow-lg">
+              Pokédex - Sélection de Dresseurs
+            </h1>
 
-export default App
+            <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md">
+              <TrainerForm />
+              <TrainerList />
+
+              <div className="mt-4 text-center">
+              <Link 
+                to="/pokedex" 
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-1 px-4 rounded-full flex items-center shadow-md no-underline"
+              >
+                Voir le Pokédex
+              </Link>
+              </div>
+            </div>
+          </div>
+        } />
+
+        {/* Route pour la page Pokédex */}
+        <Route path="/pokedex" element={<PokedexPage />} />
+      </Routes>
+    </Router>
+  );
+}
