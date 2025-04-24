@@ -1,10 +1,8 @@
 @import "tailwindcss";
 @import 'font-awesome/css/font-awesome.min.css';
 
-
-
 :root {
-  font-family: sans-serif; /* Utilise la police système générique ici */
+  font-family: sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -16,7 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Applique la police Pokémon seulement pour certains éléments */
 h1 {
   font-family: "Pokemon Solid", sans-serif;
   font-size: 3.2em;

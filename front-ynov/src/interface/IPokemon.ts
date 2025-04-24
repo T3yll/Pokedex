@@ -1,5 +1,3 @@
-// src/interfaces/IPokemon.ts
-
 // Interface pour les types de Pokémon
 export interface Type {
     name: string;

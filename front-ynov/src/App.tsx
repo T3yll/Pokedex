@@ -1,4 +1,3 @@
-// App.tsx
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TrainerForm from './components/TrainerForm';
 import TrainerList from './components/TrainerList';
@@ -8,7 +7,6 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Route par défaut qui montre la sélection de dresseurs */}
         <Route path="/" element={
           <div className="min-h-screen bg-red-500 flex flex-col items-center justify-center p-8 font-pokemon">
             <h1 className="text-4xl text-white font-bold mb-8 font-pokemon drop-shadow-lg">
@@ -31,7 +29,6 @@ export default function App() {
           </div>
         } />
 
-        {/* Route pour la page Pokédex */}
         <Route path="/pokedex" element={<PokedexPage />} />
       </Routes>
     </Router>

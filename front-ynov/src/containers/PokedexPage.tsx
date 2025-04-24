@@ -13,8 +13,7 @@ export default function PokedexPage() {
   const [typeFilter, setTypeFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const pokemonsPerPage = 12;
-  
-  // Liste de tous les types de Pokémon
+
   const pokemonTypes = [
     'Normal', 'Feu', 'Eau', 'Plante', 'Électrik', 'Glace', 
     'Combat', 'Poison', 'Sol', 'Vol', 'Psy', 'Insecte', 
@@ -26,7 +25,6 @@ export default function PokedexPage() {
       try {
         const data = await fetchPokemons();
         console.log("Pokemons fetched successfully:", data);
-        // Filtrage pour exclure le Pokémon avec l'ID 0 et trier par ID
         const filteredData = data
           .filter(poke => poke.pokedex_id !== 0)
           .sort((a, b) => a.pokedex_id - b.pokedex_id);
@@ -44,11 +42,9 @@ export default function PokedexPage() {
     getPokemons();
   }, []);
 
-  // Filtrer les Pokémon en fonction de la recherche et du type
   useEffect(() => {
     let result = pokemons;
     
-    // Filtrer par nom
     if (searchTerm) {
       result = result.filter(pokemon => 
         pokemon.name.fr.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,7 +52,6 @@ export default function PokedexPage() {
       );
     }
     
-    // Filtrer par type
     if (typeFilter !== 'all') {
       result = result.filter(pokemon => 
         pokemon.types && pokemon.types.some(type => type.name === typeFilter)
@@ -64,22 +59,19 @@ export default function PokedexPage() {
     }
     
     setFilteredPokemons(result);
-    setCurrentPage(1); // Réinitialiser à la première page après un filtrage
+    setCurrentPage(1);
   }, [searchTerm, typeFilter, pokemons]);
 
-  // Gérer le changement de page
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
   };
 
-  // Calculer les Pokémon à afficher sur la page actuelle
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = filteredPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
   const totalPages = Math.ceil(filteredPokemons.length / pokemonsPerPage);
 
-  // Générer les numéros de page pour la pagination
   const pageNumbers = [];
   const maxPageButtons = 5;
   let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
@@ -123,7 +115,6 @@ export default function PokedexPage() {
   return (
     <div className="min-h-screen bg-red-500 py-8 font-pokemon">
       <div className="container mx-auto px-4">
-        {/* Header avec bouton retour */}
         <div className="flex justify-between items-center mb-6">
           <Link 
             to="/" 
@@ -134,12 +125,10 @@ export default function PokedexPage() {
           <h1 className="text-3xl md:text-4xl text-white font-bold drop-shadow-lg text-center">
             Pokédex National
           </h1>
-          <div className="w-20"></div> {/* Espacement pour centrer le titre */}
+          <div className="w-20"></div>
         </div>
 
-        {/* Carte principale */}
         <div className="bg-white rounded-2xl shadow-2xl p-4 md:p-6">
-          {/* Filtres */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div className="md:col-span-2">
               <input
@@ -164,7 +153,6 @@ export default function PokedexPage() {
             </div>
           </div>
 
-          {/* Nombre de résultats */}
           <div className="bg-gray-100 rounded-lg p-3 mb-6">
             <p className="text-gray-700">
               <span className="font-bold text-red-600">{filteredPokemons.length}</span> Pokémon{filteredPokemons.length > 1 ? 's' : ''} trouvé{filteredPokemons.length > 1 ? 's' : ''}
@@ -173,7 +161,6 @@ export default function PokedexPage() {
 
           {filteredPokemons.length > 0 ? (
             <>
-              {/* Grille de Pokémon */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
                 {currentPokemons.map((pokemon) => (
                     <div key={pokemon.pokedex_id} className="transform hover:scale-105 transition-transform duration-200">
@@ -182,7 +169,6 @@ export default function PokedexPage() {
                 ))}
                 </div>
               
-              {/* Pagination */}
               {totalPages > 1 && (
                 <div className="flex justify-center mt-8">
                   <nav className="inline-flex rounded-md shadow-sm">

@@ -4,7 +4,7 @@ import { addTrainer } from '../features/trainers/trainerSlice';
 import { RootState } from '../store/store';
 import { Box, TextField, Typography, Alert } from '@mui/material';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
-import Button from './Button'; // ← Utilisation de ton bouton custom
+import Button from './Button';
 
 export default function TrainerForm() {
   const dispatch = useDispatch();

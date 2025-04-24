@@ -61,11 +61,9 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
     setFavorite(!favorite);
   };
 
-  // Calculer la valeur totale des stats
   const totalStats = pokemon.stats ? 
     Object.values(pokemon.stats).reduce((a, b) => a + b, 0) : 0;
 
-  // Mapping des noms de statistiques pour l'affichage
   const statNames: Record<string, string> = {
     hp: "PV",
     atk: "Attaque",
@@ -89,7 +87,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         }
       }}
     >
-      {/* En-tête de la carte avec le nom et l'ID */}
       <Box 
         sx={{ 
           bgcolor: mainColor, 
@@ -115,7 +112,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         </Typography>
       </Box>
 
-      {/* Image du Pokémon */}
       <CardMedia
         component="img"
         height="200"
@@ -128,14 +124,11 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         }}
       />
 
-      {/* Information sur le Pokémon */}
       <CardContent sx={{ bgcolor: '#f5f5f5' }}>
-        {/* Catégorie */}
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
           {pokemon.category}
         </Typography>
 
-        {/* Types */}
         <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
           {pokemon.types && pokemon.types.map((type) => (
             <Chip
@@ -158,7 +151,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
           ))}
         </Box>
 
-        {/* Infos de base */}
         <Grid container spacing={1} sx={{ mb: 2 }}>
           <Grid item xs={6}>
             <Typography variant="body2" color="text.secondary">
@@ -177,7 +169,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
           </Grid>
         </Grid>
 
-        {/* Boutons d'action */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
           <IconButton 
             onClick={handleFavoriteClick}
@@ -205,14 +196,12 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         </Box>
       </CardContent>
 
-      {/* Section extensible */}
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent sx={{ bgcolor: '#f5f5f5' }}>
           <Divider sx={{ mb: 2 }}>
             <Chip label="Statistiques" />
           </Divider>
           
-          {/* Stats */}
           {pokemon.stats && Object.entries(pokemon.stats).map(([stat, value]) => (
             <Box key={stat} sx={{ mb: 1 }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -239,7 +228,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
             <Typography variant="body2" fontWeight="bold">{totalStats}</Typography>
           </Box>
 
-          {/* Talents */}
           <Divider sx={{ my: 2 }}>
             <Chip label="Talents" />
           </Divider>
@@ -258,7 +246,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
             ))}
           </Box>
 
-          {/* Évolution */}
           {pokemon.evolution && (pokemon.evolution.pre || pokemon.evolution.next || pokemon.evolution.mega) && (
             <>
               <Divider sx={{ my: 2 }}>
@@ -289,7 +276,6 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
             </>
           )}
 
-          {/* Groupes d'œufs si disponible */}
           {pokemon.egg_groups && pokemon.egg_groups.length > 0 && (
             <>
               <Divider sx={{ my: 2 }}>
@@ -301,14 +287,12 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
             </>
           )}
 
-          {/* Taux de capture si disponible */}
           {pokemon.catch_rate !== undefined && (
             <Typography variant="body2" sx={{ mt: 1 }}>
               <strong>Taux de capture :</strong> {pokemon.catch_rate}
             </Typography>
           )}
 
-          {/* Ratio mâle/femelle si disponible */}
           {pokemon.sexe && (
             <Typography variant="body2" sx={{ mt: 1 }}>
               <strong>Ratio :</strong> {pokemon.sexe.male}% ♂ / {pokemon.sexe.female}% ♀

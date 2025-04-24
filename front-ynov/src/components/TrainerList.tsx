@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { Box, Typography, List, ListItem, ListItemText, Avatar, Paper } from '@mui/material';
+import {Typography, List, ListItem, ListItemText, Avatar, Paper } from '@mui/material';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 
 export default function TrainerList() {
