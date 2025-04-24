@@ -12,7 +12,7 @@ export default function App() {
         <Route path="/" element={
           <div className="min-h-screen bg-red-500 flex flex-col items-center justify-center p-8 font-pokemon">
             <h1 className="text-4xl text-white font-bold mb-8 font-pokemon drop-shadow-lg">
-              Pokédex - Sélection de Dresseurs
+              Pokédex
             </h1>
 
             <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md">

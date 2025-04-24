@@ -16,44 +16,39 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
 import { Pokemon } from '../interface/IPokemon';
-
-// Interface pour les props du composant
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
 
-// Map des couleurs pour les types
 const typeColors: Record<string, string> = {
-  Normal: '#A8A77A',
-  Feu: '#EE8130',
-  Eau: '#6390F0',
-  Plante: '#7AC74C',
-  Électrik: '#F7D02C',
-  Glace: '#96D9D6',
-  Combat: '#C22E28',
-  Poison: '#A33EA1',
-  Sol: '#E2BF65',
-  Vol: '#A98FF3',
-  Psy: '#F95587',
-  Insecte: '#A6B91A',
-  Roche: '#B6A136',
-  Spectre: '#735797',
-  Dragon: '#6F35FC',
-  Ténèbres: '#705746',
-  Acier: '#B7B7CE',
-  Fée: '#D685AD'
+  Normal: '#9EA19F',
+  Feu: '#E52829',
+  Eau: '#2880EE',
+  Plante: '#3FA129',
+  Électrik: '#FABF00',
+  Glace: '#3ED8FF',
+  Combat: '#FF8001',
+  Poison: '#8F40CB',
+  Sol: '#905120',
+  Vol: '#81B8EF',
+  Psy: '#EF4178',
+  Insecte: '#91A119',
+  Roche: '#AFA980',
+  Spectre: '#70416F',
+  Dragon: '#4F61E1',
+  Ténèbres: '#50413E',
+  Acier: '#60A0B7',
+  Fée: '#EF71EF'
 };
 
 const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   const [expanded, setExpanded] = useState(false);
   const [favorite, setFavorite] = useState(false);
 
-  // Fonction pour déterminer la couleur de fond basée sur le type principal
   const getTypeColor = (typeName: string): string => {
     return typeColors[typeName] || '#777777';
   };
 
-  // Définir la couleur principale basée sur le premier type
   const mainColor = pokemon.types && pokemon.types.length > 0 
     ? getTypeColor(pokemon.types[0].name) 
     : '#f44336';
