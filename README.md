@@ -21,6 +21,6 @@ npm install
 
 # 3. Lance le projet
 npm run dev
+```
 
-
-Rémi Leroi
+## Rémi LEROI
