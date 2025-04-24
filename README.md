@@ -23,4 +23,4 @@ npm install
 npm run dev
 ```
 
-## Rémi LEROI
+Rémi LEROI
