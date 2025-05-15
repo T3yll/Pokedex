@@ -17,7 +17,7 @@ Une application React qui permet de consulter le Pokédex et de créer des équi
 <table>
   <tr>
     <td>
-      <img src="https://via.placeholder.com/400x250.png?text=Page+Dresseurs" alt="Page Dresseurs" />
+      <img src="https://cdn.discordapp.com/attachments/497784569530155039/1372481626231275570/Capture_decran_2025-05-15_a_09.51.56.png?ex=6826ee9f&is=68259d1f&hm=494f3be6bbdd7e34b0c493985b373f7888b41544c2cb78910ab3f998807cbdff&" alt="Page Dresseurs" />
       <p align="center">Page des Dresseurs</p>
     </td>
     <td>
