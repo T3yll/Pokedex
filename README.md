@@ -102,4 +102,3 @@ src/
 ### Équipes de Pokémon
 - Ajout de Pokémon à l'équipe d'un dresseur
 - Suppression de Pokémon de l'équipe d'un dresseur
-- Affichage de l'équipe complète avec statistiques
