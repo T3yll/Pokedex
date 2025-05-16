@@ -1,4 +1,4 @@
-# Pokédex & Dresseurs App - Rémi LEROI
+# Pokédex & Dresseurs App - Rémi LEROI B3 Dev A
 
 ![Pokémon Banner](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
 
