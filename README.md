@@ -1,4 +1,4 @@
-# Pokédex & Dresseurs App
+# Pokédex & Dresseurs App - Rémi LEROI
 
 ![Pokémon Banner](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
 
